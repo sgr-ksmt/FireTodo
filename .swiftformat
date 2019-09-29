@@ -1,0 +1,9 @@
+
+# exclude files
+--exclude Carthage,Pods
+
+# change rules
+--stripunusedargs closure-only
+
+# disable rules
+--disable strongOutlets,numberFormatting,emptyBraces,andOperator
