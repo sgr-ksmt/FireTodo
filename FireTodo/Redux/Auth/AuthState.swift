@@ -5,6 +5,7 @@
 import Foundation
 import ReSwift
 import Firebase
+import FireSnapshot
 import Combine
 
 struct AuthState: StateType {

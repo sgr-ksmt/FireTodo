@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import FireSnapshot
 
 struct TasksRow: View {
     private let task: Snapshot<Model.Task>

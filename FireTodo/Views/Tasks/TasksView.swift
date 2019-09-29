@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import FireSnapshot
 
 class DeleteActionSheetState: ObservableObject {
     @Published var showActionSheet: Bool = false

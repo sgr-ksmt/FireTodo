@@ -3,11 +3,11 @@
 //
 
 import Firebase
-import FirebaseFirestoreSwift
+import FireSnapshot
 import SwiftUI
 
 extension Model {
-    final class Task: Codable, DocumentTimestamp, Equatable {
+    struct Task: Codable, HasTimestamps, Equatable {
         var title: String = ""
         var desc: String = ""
         var completed: Bool = false
@@ -19,17 +19,6 @@ extension Model {
             set {
                 color = newValue.rawValue
             }
-        }
-        let createTime: Timestamp = Timestamp()
-        let updateTime: Timestamp = Timestamp()
-
-        static func == (lhs: Model.Task, rhs: Model.Task) -> Bool {
-            return lhs.title == rhs.title
-                && lhs.desc == rhs.desc
-                && lhs.completed == rhs.completed
-                && lhs.color == rhs.color
-                && lhs.createTime.dateValue() == rhs.updateTime.dateValue()
-                && lhs.updateTime.dateValue() == rhs.updateTime.dateValue()
         }
     }
 }

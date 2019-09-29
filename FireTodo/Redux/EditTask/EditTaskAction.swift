@@ -4,6 +4,7 @@
 
 import Foundation
 import ReSwift
+import FireSnapshot
 
 enum EditTaskAction: Action {
     case startRequest
@@ -14,7 +15,7 @@ enum EditTaskAction: Action {
     static func saveTask(_ taskData: Model.Task, userID: String) -> AppThunkAction {
         AppThunkAction { dispatch, getState in
             dispatch(EditTaskAction.startRequest)
-            Snapshot(data: taskData, path: Model.Path.tasks(userID: userID)).set { result in
+            Snapshot(data: taskData, path: Model.Path.tasks(userID: userID)).create { result in
                 dispatch(EditTaskAction.endRequest)
                 switch result {
                 case .success:
