@@ -9,8 +9,7 @@ import ReSwift
 
 enum TasksAction: Action {
     case updateTasks(tasks: [Snapshot<Model.Task>])
-    case registerListener(listener: ListenerRegistration)
-    case removeListener
+    case updateListener(listener: ListenerRegistration?)
 
     static func subscribe(userID: String) -> AppThunkAction {
         AppThunkAction { dispatch, _ in
@@ -24,14 +23,14 @@ enum TasksAction: Action {
                     dispatch(TasksAction.updateTasks(tasks: []))
                 }
             }
-            dispatch(TasksAction.registerListener(listener: listener))
+            dispatch(TasksAction.updateListener(listener: listener))
         }
     }
 
     static func unsubscribe() -> AppThunkAction {
         AppThunkAction { dispatch, getState in
             getState()?.tasksState.tasksListener?.remove()
-            dispatch(TasksAction.removeListener)
+            dispatch(TasksAction.updateListener(listener: nil))
         }
     }
 

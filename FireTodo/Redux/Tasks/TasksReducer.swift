@@ -9,23 +9,17 @@ enum TasksReducer {
     static var reduce: Reducer<TasksState> {
         return { action, state in
             var state = state ?? TasksState()
-            switch action {
-            case let action as TasksAction:
-                switch action {
-                case let .updateTasks(tasks):
-                    state.tasks = tasks
-                    return state
-                case let .registerListener(listener):
-                    state.tasksListener = listener
-                    return state
-                case .removeListener:
-                    state.tasksListener = nil
-                    return state
-                }
-            default:
-                break
+            guard let action = action as? TasksAction else {
+                return state
             }
-            return state
+            switch action {
+            case let .updateTasks(tasks):
+                state.tasks = tasks
+                return state
+            case let .updateListener(listener):
+                state.tasksListener = listener
+                return state
+            }
         }
     }
 }

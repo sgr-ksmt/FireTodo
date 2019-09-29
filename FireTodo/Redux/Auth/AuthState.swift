@@ -16,6 +16,5 @@ struct AuthState: StateType {
 
     var loadingState: LoadingState = .initial
     var user: Snapshot<Model.User>?
-    var listenerHandle: AuthStateDidChangeListenerHandle?
     var listenerCancellable: AnyCancellable?
 }
