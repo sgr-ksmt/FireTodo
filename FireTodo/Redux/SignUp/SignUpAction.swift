@@ -6,6 +6,7 @@ import Foundation
 import ReSwift
 import ReSwiftThunk
 import Firebase
+import FireSnapshot
 
 enum SignUpAction: Action {
     case signUpStarted
@@ -31,9 +32,8 @@ enum SignUpAction: Action {
 
     private static func createUser(with uid: String, name: String, db: Firestore = .firestore()) -> AppThunkAction {
         AppThunkAction { dispatch, getState in
-            let user = Model.User()
-            user.username = name
-            Snapshot<Model.User>.init(data: user, path: Model.Path.user(userID: uid)).set { result in
+            let user = Model.User(username: name)
+            Snapshot<Model.User>.init(data: user, path: Model.Path.user(userID: uid)).create { result in
                 switch result {
                 case .success:
                     dispatch(AuthAction.fetchUser(uid: uid) {

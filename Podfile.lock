@@ -58,12 +58,12 @@ PODS:
     - leveldb-library (~> 1.22)
     - nanopb (~> 0.3.901)
     - Protobuf (~> 3.1)
-  - FirebaseFirestoreSwift (0.1):
-    - FirebaseFirestore (>= 0.10.0)
   - FirebaseInstanceID (4.2.5):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
+  - FireSnapshot (0.1.0):
+    - Firebase/Firestore (~> 6.9)
   - GoogleAppMeasurement (6.1.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -127,12 +127,14 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core (~> 6.9)
   - Firebase/Firestore
-  - FirebaseFirestoreSwift (from `https://github.com/firebase/firebase-ios-sdk.git`, branch `master`)
+  - FireSnapshot (~> 0.1)
   - ReSwift (~> 5.0)
   - ReSwiftThunk (~> 1.2)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://cdn.cocoapods.org/:
+    - FireSnapshot
+  https://github.com/CocoaPods/Specs.git:
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
@@ -156,16 +158,6 @@ SPEC REPOS:
     - ReSwift
     - ReSwiftThunk
 
-EXTERNAL SOURCES:
-  FirebaseFirestoreSwift:
-    :branch: master
-    :git: https://github.com/firebase/firebase-ios-sdk.git
-
-CHECKOUT OPTIONS:
-  FirebaseFirestoreSwift:
-    :commit: 75a8356c98d774743d488f6f03d2a79ed05453b9
-    :git: https://github.com/firebase/firebase-ios-sdk.git
-
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Firebase: 2d750c54cda57d5a6ae31212cfe5cc813c6be7e4
@@ -176,8 +168,8 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: be4f7a09d02ab305f18de59a470412caddb64c2a
   FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
   FirebaseFirestore: 5ee8bdb959541f0d55352f2d681efb03b9742a43
-  FirebaseFirestoreSwift: 7442294f8fc2e31e6b9e361ab5c99490e013662a
   FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
+  FireSnapshot: f7f10e9957a4190efe0c40b55ba1f045f76e2d07
   GoogleAppMeasurement: 0ae90be1cc4dad40f4a27fc767ef59fa032ec87b
   GoogleDataTransport: c8617c00e4f3eb9418e42ac0e8ac5241a9d555dd
   GoogleDataTransportCCTSupport: 9f352523e8785a71f6754f51eeff09f49ec19268
@@ -191,6 +183,6 @@ SPEC CHECKSUMS:
   ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
   ReSwiftThunk: 23c8ea9092d9dc94b72005f19352dbd37fa42533
 
-PODFILE CHECKSUM: a1380311d8b708825d857a68f1662c69695c2c11
+PODFILE CHECKSUM: 4d4cb6396afd5778bcac238e3a77027705402de9
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.1

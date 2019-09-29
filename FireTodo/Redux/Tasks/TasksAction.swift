@@ -5,6 +5,7 @@
 import Foundation
 import ReSwift
 import Firebase
+import FireSnapshot
 
 enum TasksAction: Action {
     case updateTasks(tasks: [Snapshot<Model.Task>])

@@ -6,6 +6,7 @@ import Foundation
 import ReSwift
 import ReSwiftThunk
 import Firebase
+import FireSnapshot
 import Combine
 
 enum AuthAction: Action {

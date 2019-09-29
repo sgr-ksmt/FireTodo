@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import FireSnapshot
 
 class EditTaskViewModel: ObservableObject {
     @Published var title: String = ""
@@ -24,7 +25,7 @@ class EditTaskViewModel: ObservableObject {
     }
 
     var saveData: Model.Task {
-        let task = Model.Task()
+        var task = Model.Task()
         task.title = title
         task.desc = desc
         task.taskColor = color

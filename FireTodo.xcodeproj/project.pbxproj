@@ -30,10 +30,7 @@
 		1616B0CD2338DA10000CAC33 /* SignUpAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0CC2338DA10000CAC33 /* SignUpAction.swift */; };
 		1616B0CF2338DA17000CAC33 /* SignUpReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0CE2338DA17000CAC33 /* SignUpReducer.swift */; };
 		1616B0D22338EA4F000CAC33 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0D12338EA4F000CAC33 /* LoadingView.swift */; };
-		1616B0D92338ED55000CAC33 /* Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0D42338ED55000CAC33 /* Snapshot.swift */; };
-		1616B0DA2338ED55000CAC33 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0D52338ED55000CAC33 /* Path.swift */; };
 		1616B0DB2338ED55000CAC33 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0D62338ED55000CAC33 /* Model.swift */; };
-		1616B0DC2338ED55000CAC33 /* DocumentTimestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0D72338ED55000CAC33 /* DocumentTimestamp.swift */; };
 		1616B0DD2338ED55000CAC33 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0D82338ED55000CAC33 /* User.swift */; };
 		1616B0E52338F736000CAC33 /* ThunkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0E42338F736000CAC33 /* ThunkAction.swift */; };
 		1616B0E8233905A3000CAC33 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616B0E7233905A3000CAC33 /* LoggingMiddleware.swift */; };
@@ -48,6 +45,7 @@
 		16500B0B233C65B300D5B47B /* EditTaskState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16500B0A233C65B300D5B47B /* EditTaskState.swift */; };
 		16500B0D233C65BA00D5B47B /* EditTaskAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16500B0C233C65BA00D5B47B /* EditTaskAction.swift */; };
 		16500B0F233C65C400D5B47B /* EditTaskReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16500B0E233C65C400D5B47B /* EditTaskReducer.swift */; };
+		166451F72340F78600E0E7AB /* Snapshot+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166451F62340F78600E0E7AB /* Snapshot+Identifiable.swift */; };
 		62C466B6D50DC4E3DEB3B9B5 /* Pods_FireTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF89887ED6E8B4FB54B4C02 /* Pods_FireTodo.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,10 +76,7 @@
 		1616B0CC2338DA10000CAC33 /* SignUpAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAction.swift; sourceTree = "<group>"; };
 		1616B0CE2338DA17000CAC33 /* SignUpReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReducer.swift; sourceTree = "<group>"; };
 		1616B0D12338EA4F000CAC33 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		1616B0D42338ED55000CAC33 /* Snapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snapshot.swift; sourceTree = "<group>"; };
-		1616B0D52338ED55000CAC33 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		1616B0D62338ED55000CAC33 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		1616B0D72338ED55000CAC33 /* DocumentTimestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTimestamp.swift; sourceTree = "<group>"; };
 		1616B0D82338ED55000CAC33 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1616B0E42338F736000CAC33 /* ThunkAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThunkAction.swift; sourceTree = "<group>"; };
 		1616B0E7233905A3000CAC33 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
@@ -96,6 +91,7 @@
 		16500B0A233C65B300D5B47B /* EditTaskState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskState.swift; sourceTree = "<group>"; };
 		16500B0C233C65BA00D5B47B /* EditTaskAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskAction.swift; sourceTree = "<group>"; };
 		16500B0E233C65C400D5B47B /* EditTaskReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskReducer.swift; sourceTree = "<group>"; };
+		166451F62340F78600E0E7AB /* Snapshot+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+Identifiable.swift"; sourceTree = "<group>"; };
 		5FF89887ED6E8B4FB54B4C02 /* Pods_FireTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B5A374F3B1B0B109A5E5B2 /* Pods-FireTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireTodo.release.xcconfig"; path = "Target Support Files/Pods-FireTodo/Pods-FireTodo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,16 +170,6 @@
 				1616B0E32338F72C000CAC33 /* Thunk */,
 			);
 			path = Middleware;
-			sourceTree = "<group>";
-		};
-		1607A42B233D1B450034BB35 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1616B0D62338ED55000CAC33 /* Model.swift */,
-				1616B0D82338ED55000CAC33 /* User.swift */,
-				1607A42C233D1B570034BB35 /* Task.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		1607A4E4233DAB8B0034BB35 /* Profile */ = {
@@ -269,10 +255,10 @@
 		1616B0D32338ED06000CAC33 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				1607A42B233D1B450034BB35 /* Models */,
-				1616B0D72338ED55000CAC33 /* DocumentTimestamp.swift */,
-				1616B0D52338ED55000CAC33 /* Path.swift */,
-				1616B0D42338ED55000CAC33 /* Snapshot.swift */,
+				1616B0D62338ED55000CAC33 /* Model.swift */,
+				1616B0D82338ED55000CAC33 /* User.swift */,
+				1607A42C233D1B570034BB35 /* Task.swift */,
+				166451F62340F78600E0E7AB /* Snapshot+Identifiable.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -491,9 +477,9 @@
 				1607A4E6233DAB960034BB35 /* ProfileView.swift in Sources */,
 				1616B0CB2338DA09000CAC33 /* SignUpState.swift in Sources */,
 				1607028C2337231300A57BE8 /* ContentView.swift in Sources */,
+				166451F72340F78600E0E7AB /* Snapshot+Identifiable.swift in Sources */,
 				1616B0BE2337B472000CAC33 /* SignUpView.swift in Sources */,
 				16500B08233C5C5A00D5B47B /* ColorSelectView.swift in Sources */,
-				1616B0D92338ED55000CAC33 /* Snapshot.swift in Sources */,
 				1616B0AD2337818A000CAC33 /* AppState.swift in Sources */,
 				1616B0B623378BF7000CAC33 /* AuthState.swift in Sources */,
 				1616B0B423378682000CAC33 /* AppStore.swift in Sources */,
@@ -502,9 +488,7 @@
 				1616B0B023378257000CAC33 /* AppMain.swift in Sources */,
 				16500B04233BCB8F00D5B47B /* TasksReducer.swift in Sources */,
 				1616B0BA23378EE8000CAC33 /* AuthAction.swift in Sources */,
-				1616B0DA2338ED55000CAC33 /* Path.swift in Sources */,
 				1616B0D22338EA4F000CAC33 /* LoadingView.swift in Sources */,
-				1616B0DC2338ED55000CAC33 /* DocumentTimestamp.swift in Sources */,
 				1616B0DD2338ED55000CAC33 /* User.swift in Sources */,
 				16500A3D233B27C300D5B47B /* TasksView.swift in Sources */,
 				16500A3F233B40CF00D5B47B /* TasksRow.swift in Sources */,

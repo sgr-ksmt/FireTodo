@@ -1,12 +1,15 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+source 'https://cdn.cocoapods.org/'
+platform :ios, '13.0'
 
 target 'FireTodo' do
   use_frameworks!
+  # Firebase
   pod 'Firebase/Core', '~> 6.9'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
+  pod 'FireSnapshot', '~> 0.1'
+
+  # ReSwift
   pod 'ReSwift', '~> 5.0'
   pod 'ReSwiftThunk', '~> 1.2'
 end
