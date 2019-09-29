@@ -13,7 +13,9 @@ enum TasksAction: Action {
 
     static func subscribe(userID: String) -> AppThunkAction {
         AppThunkAction { dispatch, _ in
-            let listener = Snapshot<Model.Task>.listen(Model.Path.tasks(userID: userID)) { result in
+            let listener = Snapshot<Model.Task>.listen(Model.Path.tasks(userID: userID), queryBuilder: {
+                $0.order(by: "updateTime", descending: true).limit(to: 30)
+            }) { result in
                 switch result {
                 case let .success(tasks):
                     dispatch(TasksAction.updateTasks(tasks: tasks))
