@@ -1,6 +1,8 @@
 source 'https://cdn.cocoapods.org/'
 platform :ios, '13.0'
 
+inhibit_all_warnings!
+
 # Tools
 pod 'SwiftFormat/CLI', '~> 0.40.0'
 pod 'SwiftLint', '~> 0.35.0'

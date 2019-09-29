@@ -349,8 +349,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 160702982337231400A57BE8 /* Build configuration list for PBXNativeTarget "FireTodo" */;
 			buildPhases = (
-				166451F82340FE0400E0E7AB /* SwiftLint */,
 				678E1EE18A824791FD50167E /* [CP] Check Pods Manifest.lock */,
+				166451F82340FE0400E0E7AB /* SwiftLint */,
 				160702802337231300A57BE8 /* Sources */,
 				160702812337231300A57BE8 /* Frameworks */,
 				160702822337231300A57BE8 /* Resources */,
