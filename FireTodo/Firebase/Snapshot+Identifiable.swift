@@ -2,8 +2,8 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
-import Foundation
 import FireSnapshot
+import Foundation
 
 extension Snapshot: Identifiable {
     public var id: String {

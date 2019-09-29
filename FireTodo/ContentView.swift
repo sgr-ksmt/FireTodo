@@ -2,8 +2,8 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject private var store: AppStore
@@ -19,11 +19,9 @@ struct ContentView: View {
                     return AnyView(SignUpView())
                 }
             }
-        }())
-        .onAppear { self.store.dispatch(AuthAction.subscribe()) }
-        .onDisappear {
-            self.store.dispatch(AuthAction.subscribe())
-        }
+            }())
+            .onAppear { self.store.dispatch(AuthAction.subscribe()) }
+            .onDisappear { self.store.dispatch(AuthAction.subscribe()) }
     }
 }
 

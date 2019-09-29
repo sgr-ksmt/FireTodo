@@ -122,6 +122,8 @@ PODS:
     - ReSwiftThunk/Core (= 1.2.0)
   - ReSwiftThunk/Core (1.2.0):
     - ReSwift (~> 5.0)
+  - SwiftFormat/CLI (0.40.12)
+  - SwiftLint (0.35.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -130,10 +132,14 @@ DEPENDENCIES:
   - FireSnapshot (~> 0.1)
   - ReSwift (~> 5.0)
   - ReSwiftThunk (~> 1.2)
+  - SwiftFormat/CLI (~> 0.40.0)
+  - SwiftLint (~> 0.35.0)
 
 SPEC REPOS:
   https://cdn.cocoapods.org/:
     - FireSnapshot
+    - SwiftFormat
+    - SwiftLint
   https://github.com/CocoaPods/Specs.git:
     - BoringSSL-GRPC
     - Firebase
@@ -182,7 +188,9 @@ SPEC CHECKSUMS:
   Protobuf: 67fb42ba613def994e61854de2b3164f13790cc4
   ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
   ReSwiftThunk: 23c8ea9092d9dc94b72005f19352dbd37fa42533
+  SwiftFormat: 73667bbb741386b0febf0bd1a1b8c502aa9d1c98
+  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: 4d4cb6396afd5778bcac238e3a77027705402de9
+PODFILE CHECKSUM: ceb8b846a35663172ff47edadcc9210f653fd031
 
 COCOAPODS: 1.8.1

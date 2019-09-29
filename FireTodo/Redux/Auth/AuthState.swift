@@ -2,17 +2,18 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
-import Foundation
-import ReSwift
+import Combine
 import Firebase
 import FireSnapshot
-import Combine
+import Foundation
+import ReSwift
 
 struct AuthState: StateType {
     enum LoadingState {
         case initial
         case loaded
     }
+
     var loadingState: LoadingState = .initial
     var user: Snapshot<Model.User>?
     var listenerHandle: AuthStateDidChangeListenerHandle?

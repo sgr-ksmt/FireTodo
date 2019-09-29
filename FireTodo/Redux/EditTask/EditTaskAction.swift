@@ -2,9 +2,9 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
+import FireSnapshot
 import Foundation
 import ReSwift
-import FireSnapshot
 
 enum EditTaskAction: Action {
     case startRequest
@@ -13,7 +13,7 @@ enum EditTaskAction: Action {
     case reset
 
     static func saveTask(_ taskData: Model.Task, userID: String) -> AppThunkAction {
-        AppThunkAction { dispatch, getState in
+        AppThunkAction { dispatch, _ in
             dispatch(EditTaskAction.startRequest)
             Snapshot(data: taskData, path: Model.Path.tasks(userID: userID)).create { result in
                 dispatch(EditTaskAction.endRequest)
@@ -28,7 +28,7 @@ enum EditTaskAction: Action {
     }
 
     static func updateTask(_ taskData: Model.Task, taskID: String, userID: String) -> AppThunkAction {
-        AppThunkAction { dispatch, getState in
+        AppThunkAction { dispatch, _ in
             dispatch(EditTaskAction.startRequest)
             Snapshot(data: taskData, path: Model.Path.task(userID: userID, taskID: taskID)).update { result in
                 dispatch(EditTaskAction.endRequest)

@@ -32,7 +32,7 @@ struct ProfileView: View {
                     .overlay(
                         Capsule(style: .continuous)
                             .stroke(Color.primary, lineWidth: 2.0)
-                )
+                    )
             }
             .disabled(self.store.state.authState.user == nil)
 
@@ -52,13 +52,17 @@ struct ProfileView: View {
                     ActionSheet.Button.destructive(Text("Sign Out")) {
                         self.store.dispatch(AuthAction.signOut())
                     },
-                    ActionSheet.Button.cancel()])
+                    ActionSheet.Button.cancel(),
+                ]
+            )
         }
     }
 }
 
-//struct ProfileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProfileView()
-//    }
-//}
+#if DEBUG
+struct ProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView().environmentObject(AppMain().store)
+    }
+}
+#endif

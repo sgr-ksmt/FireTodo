@@ -2,8 +2,8 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
-import Foundation
 import FireSnapshot
+import Foundation
 
 /// Name space for Cloud Firestore document models.
 enum Model {

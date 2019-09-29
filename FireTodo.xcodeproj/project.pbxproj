@@ -349,6 +349,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 160702982337231400A57BE8 /* Build configuration list for PBXNativeTarget "FireTodo" */;
 			buildPhases = (
+				166451F82340FE0400E0E7AB /* SwiftLint */,
 				678E1EE18A824791FD50167E /* [CP] Check Pods Manifest.lock */,
 				160702802337231300A57BE8 /* Sources */,
 				160702812337231300A57BE8 /* Frameworks */,
@@ -412,6 +413,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		166451F82340FE0400E0E7AB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/Pods/SwiftLint/swiftlint\n";
+		};
 		6332EE6E8916A88AE530C93A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

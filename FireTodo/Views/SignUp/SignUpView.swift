@@ -10,6 +10,7 @@ struct SignUpView: View {
     private var canRegister: Bool {
         name.count >= 3 && name.count <= 16
     }
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -25,7 +26,6 @@ struct SignUpView: View {
                     }
                     .padding()
 
-
                     Button(action: {
                         self.store.dispatch(SignUpAction.signUp(with: self.name))
                     }) {
@@ -36,7 +36,7 @@ struct SignUpView: View {
                             .overlay(
                                 Capsule(style: .continuous)
                                     .stroke(self.canRegister ? Color.primary : Color.gray, lineWidth: 2.0)
-                        )
+                            )
                     }
                     .opacity(self.canRegister ? 1.0 : 0.5)
                     .disabled(!self.canRegister)
@@ -50,9 +50,9 @@ struct SignUpView: View {
 }
 
 #if DEBUG
-struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpView()
+    struct SignUpView_Previews: PreviewProvider {
+        static var previews: some View {
+            SignUpView().environmentObject(AppMain().store)
+        }
     }
-}
 #endif

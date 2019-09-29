@@ -2,9 +2,9 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
+import Combine
 import Foundation
 import ReSwift
-import Combine
 
 final class AppStore: StoreSubscriber, DispatchingStoreType, ObservableObject {
     private let store: Store<AppState>

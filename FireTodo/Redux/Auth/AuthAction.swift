@@ -2,12 +2,12 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
+import Combine
+import Firebase
+import FireSnapshot
 import Foundation
 import ReSwift
 import ReSwiftThunk
-import Firebase
-import FireSnapshot
-import Combine
 
 enum AuthAction: Action {
     case finishInitialLoad
@@ -36,8 +36,8 @@ enum AuthAction: Action {
                         finishInitialLoad()
                         return AuthAction.updateUser(user: nil)
                     }
-            }
-            .sink(receiveValue: dispatch)
+                }
+                .sink(receiveValue: dispatch)
 
             dispatch(AuthAction.subscribeAuthChange(cancellable: cancellable))
         }

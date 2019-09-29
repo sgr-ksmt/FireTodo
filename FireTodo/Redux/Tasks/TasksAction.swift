@@ -2,10 +2,10 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
-import Foundation
-import ReSwift
 import Firebase
 import FireSnapshot
+import Foundation
+import ReSwift
 
 enum TasksAction: Action {
     case updateTasks(tasks: [Snapshot<Model.Task>])
@@ -13,7 +13,7 @@ enum TasksAction: Action {
     case removeListener
 
     static func subscribe(userID: String) -> AppThunkAction {
-        AppThunkAction { dispatch, getState in
+        AppThunkAction { dispatch, _ in
             let listener = Snapshot<Model.Task>.listen(Model.Path.tasks(userID: userID)) { result in
                 switch result {
                 case let .success(tasks):
@@ -36,13 +36,13 @@ enum TasksAction: Action {
     }
 
     static func deleteTask(_ task: Snapshot<Model.Task>) -> AppThunkAction {
-        AppThunkAction { dispatch, getState in
+        AppThunkAction { _, _ in
             task.remove()
         }
     }
 
     static func toggleTaskCompleted(_ task: Snapshot<Model.Task>) -> AppThunkAction {
-        AppThunkAction { dispatch, getState in
+        AppThunkAction { _, _ in
             task.data.completed.toggle()
             task.update()
         }

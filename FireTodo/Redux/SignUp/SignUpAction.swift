@@ -2,11 +2,11 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
+import Firebase
+import FireSnapshot
 import Foundation
 import ReSwift
 import ReSwiftThunk
-import Firebase
-import FireSnapshot
 
 enum SignUpAction: Action {
     case signUpStarted
@@ -31,7 +31,7 @@ enum SignUpAction: Action {
     }
 
     private static func createUser(with uid: String, name: String, db: Firestore = .firestore()) -> AppThunkAction {
-        AppThunkAction { dispatch, getState in
+        AppThunkAction { dispatch, _ in
             let user = Model.User(username: name)
             Snapshot<Model.User>.init(data: user, path: Model.Path.user(userID: uid)).create { result in
                 switch result {
