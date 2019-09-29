@@ -26,7 +26,7 @@ extension CombineAuth {
             let listener = addListener(auth) { auth, user in
                 _ = subscriber.receive((auth, user))
             }
-            self._cancel = { removeListener($0, listener) }
+            _cancel = { removeListener($0, listener) }
         }
 
         public func request(_ demand: Subscribers.Demand) {}
@@ -53,7 +53,7 @@ extension CombineAuth {
             self.removeListener = removeListener
         }
 
-        public func receive<S>(subscriber: S) where S : Subscriber, S.Failure == Failure, S.Input == Output {
+        public func receive<S>(subscriber: S) where S: Subscriber, S.Failure == Failure, S.Input == Output {
             subscriber.receive(subscription: Subscription(
                 subscriber: subscriber,
                 auth: auth,

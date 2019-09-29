@@ -2,12 +2,11 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
-import UIKit
-import SwiftUI
 import ReSwift
+import SwiftUI
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
     private lazy var main: AppMain = .init()
 
@@ -37,4 +36,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidEnterBackground(_ scene: UIScene) {
     }
 }
-

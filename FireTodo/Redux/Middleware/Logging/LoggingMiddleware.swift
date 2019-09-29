@@ -6,7 +6,7 @@ import Foundation
 import ReSwift
 
 func createLoggingMiddleware() -> Middleware<AppState> {
-    return { dispatch, getState in
+    return { _, _ in
         { next in
             { action in
                 print(">  \(action)")

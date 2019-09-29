@@ -2,8 +2,8 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
-import SwiftUI
 import FireSnapshot
+import SwiftUI
 
 class DeleteActionSheetState: ObservableObject {
     @Published var showActionSheet: Bool = false
@@ -71,8 +71,7 @@ struct TasksView: View {
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()
                         .frame(width: 30.0, height: 30.0)
-                }
-            )
+            })
         }
         .background(
             EmptyView().sheet(isPresented: $showEditTask) {
@@ -97,7 +96,9 @@ struct TasksView: View {
                             self.store.dispatch(TasksAction.deleteTask(task))
                         }
                     },
-                    ActionSheet.Button.cancel()])
+                    ActionSheet.Button.cancel(),
+                ]
+            )
         }
         .onAppear {
             if let userID = self.store.state.authState.user?.reference.documentID {
@@ -110,8 +111,10 @@ struct TasksView: View {
     }
 }
 
+#if DEBUG
 struct TasksView_Previews: PreviewProvider {
     static var previews: some View {
-        TasksView()
+        TasksView().environmentObject(AppMain().store)
     }
 }
+#endif

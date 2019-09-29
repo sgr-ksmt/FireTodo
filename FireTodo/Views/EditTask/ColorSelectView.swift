@@ -28,8 +28,10 @@ struct ColorSelectView: View {
     }
 }
 
+#if DEBUG
 struct ColorSelectView_Previews: PreviewProvider {
     static var previews: some View {
         ColorSelectView(color: .red, selected: true)
     }
 }
+#endif

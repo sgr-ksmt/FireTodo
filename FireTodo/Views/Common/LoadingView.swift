@@ -9,6 +9,7 @@ struct LoadingView: View {
     init(isLoading: Bool) {
         self.isLoading = isLoading
     }
+
     var body: some View {
         ZStack {
             if isLoading {
@@ -25,8 +26,10 @@ struct LoadingView: View {
     }
 }
 
+#if DEBUG
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
         LoadingView(isLoading: true)
     }
 }
+#endif

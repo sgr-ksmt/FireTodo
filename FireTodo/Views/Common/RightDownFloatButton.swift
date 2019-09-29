@@ -5,11 +5,11 @@
 import SwiftUI
 
 struct RightDownFloatButton: View {
-
     private let action: () -> Void
     init(action: @escaping () -> Void = {}) {
         self.action = action
     }
+
     var body: some View {
         VStack {
             Spacer()
@@ -29,9 +29,10 @@ struct RightDownFloatButton: View {
     }
 }
 
+#if DEBUG
 struct RightDownFloatButton_Previews: PreviewProvider {
     static var previews: some View {
         RightDownFloatButton()
     }
 }
-
+#endif

@@ -2,8 +2,8 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
-import SwiftUI
 import FireSnapshot
+import SwiftUI
 
 class EditTaskViewModel: ObservableObject {
     @Published var title: String = ""
@@ -46,7 +46,7 @@ struct EditTaskView: View {
 
     init(task: Snapshot<Model.Task>? = nil) {
         self.task = task
-        viewModel  = EditTaskViewModel(task: task)
+        viewModel = EditTaskViewModel(task: task)
     }
 
     var body: some View {
@@ -72,7 +72,7 @@ struct EditTaskView: View {
                                         withAnimation {
                                             self.viewModel.color = color
                                         }
-                                }
+                                    }
                             }
 
                             Spacer()
@@ -117,8 +117,10 @@ struct EditTaskView: View {
     }
 }
 
+#if DEBUG
 struct EditTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        EditTaskView()
+        EditTaskView().environmentObject(AppMain().store)
     }
 }
+#endif

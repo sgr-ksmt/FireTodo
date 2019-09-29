@@ -2,8 +2,8 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
-import SwiftUI
 import FireSnapshot
+import SwiftUI
 
 struct TasksRow: View {
     private let task: Snapshot<Model.Task>
@@ -13,6 +13,7 @@ struct TasksRow: View {
         self.task = task
         self.onTapCompleted = onTapCompleted
     }
+
     var body: some View {
         VStack {
             HStack(spacing: 16.0) {
@@ -48,8 +49,10 @@ struct TasksRow: View {
     }
 }
 
-//struct TasksRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TasksRow(task: .init(title: "test")) {}
-//    }
-//}
+#if DEBUG
+struct TasksRow_Previews: PreviewProvider {
+    static var previews: some View {
+        TasksRow(task: Snapshot<Model.Task>(data: .init(), path: Model.Path.tasks(userID: "xxx"))) {}
+    }
+}
+#endif

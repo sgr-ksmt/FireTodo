@@ -15,7 +15,7 @@ enum TasksReducer {
                 case let .updateTasks(tasks):
                     state.tasks = tasks
                     return state
-                case .registerListener(let listener):
+                case let .registerListener(listener):
                     state.tasksListener = listener
                     return state
                 case .removeListener:
