@@ -61,8 +61,6 @@ open FireTodo.xcworkspace
 
 ## Todo
 
-- [ ] Create OSS Logo
-- [ ] Improve Redux flow
 - [ ] Divide some views into Components.
 - [ ] Edit user profile
 - [ ] Use Combine Framework more.
