@@ -7,7 +7,7 @@ import FireSnapshot
 import SwiftUI
 
 extension Model {
-    struct Task: Codable, HasTimestamps, Equatable {
+    struct Task: HasTimestamps, Codable, Equatable{
         var title: String = ""
         var desc: String = ""
         var completed: Bool = false

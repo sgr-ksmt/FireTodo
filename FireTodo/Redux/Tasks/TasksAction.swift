@@ -9,12 +9,13 @@ import ReSwift
 
 enum TasksAction: Action {
     case updateTasks(tasks: [Snapshot<Model.Task>])
-    case registerListener(listener: ListenerRegistration)
-    case removeListener
+    case updateListener(listener: ListenerRegistration?)
 
     static func subscribe(userID: String) -> AppThunkAction {
         AppThunkAction { dispatch, _ in
-            let listener = Snapshot<Model.Task>.listen(Model.Path.tasks(userID: userID)) { result in
+            let listener = Snapshot<Model.Task>.listen(Model.Path.tasks(userID: userID), queryBuilder: {
+                $0.order(by: "updateTime", descending: true).limit(to: 30)
+            }) { result in
                 switch result {
                 case let .success(tasks):
                     dispatch(TasksAction.updateTasks(tasks: tasks))
@@ -24,14 +25,14 @@ enum TasksAction: Action {
                     dispatch(TasksAction.updateTasks(tasks: []))
                 }
             }
-            dispatch(TasksAction.registerListener(listener: listener))
+            dispatch(TasksAction.updateListener(listener: listener))
         }
     }
 
     static func unsubscribe() -> AppThunkAction {
         AppThunkAction { dispatch, getState in
             getState()?.tasksState.tasksListener?.remove()
-            dispatch(TasksAction.removeListener)
+            dispatch(TasksAction.updateListener(listener: nil))
         }
     }
 

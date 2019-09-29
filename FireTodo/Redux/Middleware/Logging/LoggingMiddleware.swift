@@ -9,7 +9,7 @@ func createLoggingMiddleware() -> Middleware<AppState> {
     return { _, _ in
         { next in
             { action in
-                print(">  \(action)")
+                print("[dispatch]: \(action)")
                 next(action)
             }
         }

@@ -9,10 +9,7 @@ import ReSwift
 final class AppStore: StoreSubscriber, DispatchingStoreType, ObservableObject {
     private let store: Store<AppState>
     var state: AppState { store.state }
-    private let stateChange = ObservableObjectPublisher()
-    var objectWillChange: ObservableObjectPublisher {
-        stateChange
-    }
+    private(set) var objectWillChange: ObservableObjectPublisher = .init()
 
     init(_ store: Store<AppState>) {
         self.store = store
@@ -20,7 +17,7 @@ final class AppStore: StoreSubscriber, DispatchingStoreType, ObservableObject {
     }
 
     func newState(state: AppState) {
-        stateChange.send()
+        objectWillChange.send()
     }
 
     func dispatch(_ action: Action) {

@@ -11,10 +11,7 @@ import ReSwiftThunk
 
 enum AuthAction: Action {
     case finishInitialLoad
-    case registerAuthChangeHandle(listenerHandle: AuthStateDidChangeListenerHandle)
-    case removeAuthChangeHandle
-    case subscribeAuthChange(cancellable: AnyCancellable)
-    case unsubscribeAuthChange
+    case updateAuthChangeListener(listener: AnyCancellable?)
     case updateUser(user: Snapshot<Model.User>?)
 
     static func subscribe() -> AppThunkAction {
@@ -39,14 +36,14 @@ enum AuthAction: Action {
                 }
                 .sink(receiveValue: dispatch)
 
-            dispatch(AuthAction.subscribeAuthChange(cancellable: cancellable))
+            dispatch(AuthAction.updateAuthChangeListener(listener: cancellable))
         }
     }
 
     static func unsubscribe() -> AppThunkAction {
         AppThunkAction { dispatch, getState in
             getState()?.authState.listenerCancellable?.cancel()
-            dispatch(AuthAction.unsubscribeAuthChange)
+            dispatch(AuthAction.updateAuthChangeListener(listener: nil))
         }
     }
 
