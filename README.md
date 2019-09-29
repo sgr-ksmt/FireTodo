@@ -1,5 +1,12 @@
 # FireTodo
 
+![Swift](https://img.shields.io/badge/swift-5.1-orange.svg?style=for-the-badge)
+![SwiftUI](https://img.shields.io/badge/use-swift_ui-orange.svg?style=for-the-badge)
+![Firebase](https://img.shields.io/badge/firebase-6.9.0-orange.svg?style=for-the-badge)
+![Xcode](https://img.shields.io/badge/Xcode-11.1_GM_Seed-blue.svg?style=for-the-badge)
+[![Git Version](https://img.shields.io/github/release/sgr-ksmt/FireTodo.svg?style=for-the-badge)](https://github.com/sgr-ksmt/FireTodo/releases)
+[![license](https://img.shields.io/github/license/sgr-ksmt/FireTodo.svg?style=for-the-badge)](https://github.com/sgr-ksmt/FireTodo/blob/master/LICENSE)
+
 Simple Todo Application using **SwiftUI**/**Firebase**/**Redux**/**Combine**.
 
 | Light                      | _                          | _                          | _                          |
