@@ -62,7 +62,7 @@ PODS:
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
-  - FireSnapshot (0.1.0):
+  - FireSnapshot (0.2.0):
     - Firebase/Firestore (~> 6.9)
   - GoogleAppMeasurement (6.1.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
@@ -136,11 +136,7 @@ DEPENDENCIES:
   - SwiftLint (~> 0.35.0)
 
 SPEC REPOS:
-  https://cdn.cocoapods.org/:
-    - FireSnapshot
-    - SwiftFormat
-    - SwiftLint
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
@@ -151,6 +147,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnosticsInterop
     - FirebaseFirestore
     - FirebaseInstanceID
+    - FireSnapshot
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
@@ -163,6 +160,8 @@ SPEC REPOS:
     - Protobuf
     - ReSwift
     - ReSwiftThunk
+    - SwiftFormat
+    - SwiftLint
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
@@ -175,7 +174,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
   FirebaseFirestore: 5ee8bdb959541f0d55352f2d681efb03b9742a43
   FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
-  FireSnapshot: f7f10e9957a4190efe0c40b55ba1f045f76e2d07
+  FireSnapshot: f6503aca3c8ade50eca27fcf87f7c5d14ee20fcf
   GoogleAppMeasurement: 0ae90be1cc4dad40f4a27fc767ef59fa032ec87b
   GoogleDataTransport: c8617c00e4f3eb9418e42ac0e8ac5241a9d555dd
   GoogleDataTransportCCTSupport: 9f352523e8785a71f6754f51eeff09f49ec19268
