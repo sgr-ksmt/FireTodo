@@ -4,7 +4,8 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct ProfileView: View, Identifiable {
+    var id = UUID()
     @EnvironmentObject private var store: AppStore
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var showActionSheet: Bool = false

@@ -34,7 +34,9 @@ class EditTaskViewModel: ObservableObject {
     }
 }
 
-struct EditTaskView: View {
+struct EditTaskView: View, Identifiable {
+    var id = UUID()
+
     @EnvironmentObject private var store: AppStore
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject private var viewModel: EditTaskViewModel

@@ -16,11 +16,9 @@ class DeleteActionSheetState: ObservableObject {
 
 struct TasksView: View {
     @EnvironmentObject private var store: AppStore
-    @State private var showEditTask: Bool = false
-    @State private var showProfile: Bool = false
-    @State private var editTask: Snapshot<Model.Task>?
     @ObservedObject private var deleteActionSheetState: DeleteActionSheetState = .init()
     @State private var hideCompletedTasks: Bool = true
+    @State private var presentation: PresentationView?
 
     var body: some View {
         NavigationView {
@@ -41,8 +39,7 @@ struct TasksView: View {
                                     }
                                     .contextMenu {
                                         Button(action: {
-                                            self.editTask = task
-                                            self.showEditTask = true
+                                            self.presentation = PresentationView(view: EditTaskView(task: task))
                                         }) { Text("Edit") }
 
                                         Button(action: {
@@ -57,7 +54,7 @@ struct TasksView: View {
                         }
 
                         RightDownFloatButton {
-                            self.showEditTask = true
+                            self.presentation = PresentationView(view: EditTaskView())
                         }
                     }
                     .layoutPriority(1)
@@ -66,39 +63,27 @@ struct TasksView: View {
             .navigationBarTitle("Tasks")
             .navigationBarItems(trailing:
                 Button(action: {
-                    self.showProfile = true
+                    self.presentation = PresentationView(view: ProfileView())
                 }) {
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()
                         .frame(width: 30.0, height: 30.0)
             })
-        }
-        .background(
-            EmptyView().sheet(isPresented: $showEditTask) {
-                EditTaskView(task: self.editTask)
-                    .environmentObject(self.store)
-                    .onDisappear {
-                        self.editTask = nil
-                }
+            .sheet(item: $presentation, content: { $0.environmentObject(self.store) })
+            .actionSheet(isPresented: $deleteActionSheetState.showActionSheet) {
+                ActionSheet(
+                    title: Text(""),
+                    message: Text("Would you want to delete this task?\"\(deleteActionSheetState.task?.data.title ?? "")\""),
+                    buttons: [
+                        ActionSheet.Button.destructive(Text("Delete")) {
+                            if let task = self.deleteActionSheetState.task {
+                                self.store.dispatch(TasksAction.deleteTask(task))
+                            }
+                        },
+                        ActionSheet.Button.cancel(),
+                    ]
+                )
             }
-            .background(EmptyView().sheet(isPresented: $showProfile) {
-                ProfileView()
-                    .environmentObject(self.store)
-            })
-        )
-        .actionSheet(isPresented: $deleteActionSheetState.showActionSheet) {
-            ActionSheet(
-                title: Text(""),
-                message: Text("Would you want to delete this task?\"\(deleteActionSheetState.task?.data.title ?? "")\""),
-                buttons: [
-                    ActionSheet.Button.destructive(Text("Delete")) {
-                        if let task = self.deleteActionSheetState.task {
-                            self.store.dispatch(TasksAction.deleteTask(task))
-                        }
-                    },
-                    ActionSheet.Button.cancel(),
-                ]
-            )
         }
         .onAppear {
             if let userID = self.store.state.authState.user?.reference.documentID {

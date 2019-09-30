@@ -45,6 +45,7 @@
 		16500B0B233C65B300D5B47B /* EditTaskState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16500B0A233C65B300D5B47B /* EditTaskState.swift */; };
 		16500B0D233C65BA00D5B47B /* EditTaskAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16500B0C233C65BA00D5B47B /* EditTaskAction.swift */; };
 		16500B0F233C65C400D5B47B /* EditTaskReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16500B0E233C65C400D5B47B /* EditTaskReducer.swift */; };
+		1659EBEC23419F6E00BD510D /* PresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659EBEB23419F6E00BD510D /* PresentationView.swift */; };
 		166451F72340F78600E0E7AB /* Snapshot+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166451F62340F78600E0E7AB /* Snapshot+Identifiable.swift */; };
 		62C466B6D50DC4E3DEB3B9B5 /* Pods_FireTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF89887ED6E8B4FB54B4C02 /* Pods_FireTodo.framework */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		16500B0A233C65B300D5B47B /* EditTaskState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskState.swift; sourceTree = "<group>"; };
 		16500B0C233C65BA00D5B47B /* EditTaskAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskAction.swift; sourceTree = "<group>"; };
 		16500B0E233C65C400D5B47B /* EditTaskReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskReducer.swift; sourceTree = "<group>"; };
+		1659EBEB23419F6E00BD510D /* PresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationView.swift; sourceTree = "<group>"; };
 		166451F62340F78600E0E7AB /* Snapshot+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+Identifiable.swift"; sourceTree = "<group>"; };
 		5FF89887ED6E8B4FB54B4C02 /* Pods_FireTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B5A374F3B1B0B109A5E5B2 /* Pods-FireTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireTodo.release.xcconfig"; path = "Target Support Files/Pods-FireTodo/Pods-FireTodo.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				1616B0D12338EA4F000CAC33 /* LoadingView.swift */,
 				1607A427233D14870034BB35 /* RightDownFloatButton.swift */,
 				1607A429233D19DC0034BB35 /* WidthFillPlaceHolderView.swift */,
+				1659EBEB23419F6E00BD510D /* PresentationView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				1616B0BA23378EE8000CAC33 /* AuthAction.swift in Sources */,
 				1616B0D22338EA4F000CAC33 /* LoadingView.swift in Sources */,
 				1616B0DD2338ED55000CAC33 /* User.swift in Sources */,
+				1659EBEC23419F6E00BD510D /* PresentationView.swift in Sources */,
 				16500A3D233B27C300D5B47B /* TasksView.swift in Sources */,
 				16500A3F233B40CF00D5B47B /* TasksRow.swift in Sources */,
 				16500B02233BCB8700D5B47B /* TasksState.swift in Sources */,
