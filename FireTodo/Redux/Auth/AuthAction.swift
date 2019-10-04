@@ -49,7 +49,7 @@ enum AuthAction: Action {
 
     static func fetchUser(uid: String, completion: @escaping () -> Void = {}) -> AppThunkAction {
         AppThunkAction { dispatch, getState in
-            Snapshot<Model.User>.get(Model.Path.user(userID: uid)) { result in
+            Snapshot.get(.user(userID: uid)) { result in
                 switch result {
                 case let .success(user):
                     dispatch(AuthAction.updateUser(user: user))

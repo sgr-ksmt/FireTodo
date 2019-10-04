@@ -13,8 +13,11 @@ enum TasksAction: Action {
 
     static func subscribe(userID: String) -> AppThunkAction {
         AppThunkAction { dispatch, _ in
-            let listener = Snapshot<Model.Task>.listen(Model.Path.tasks(userID: userID), queryBuilder: {
-                $0.order(by: "updateTime", descending: true).limit(to: 30)
+            let listener = Snapshot<Model.Task>.listen(.tasks(userID: userID), queryBuilder: {
+                QueryBuilder<Model.Task>($0)
+                    .order(.updateTime, descending: true)
+                    .limit(to: 30)
+                    .generate()
             }) { result in
                 switch result {
                 case let .success(tasks):
@@ -38,7 +41,7 @@ enum TasksAction: Action {
 
     static func deleteTask(_ task: Snapshot<Model.Task>) -> AppThunkAction {
         AppThunkAction { _, _ in
-            task.remove()
+            task.delete()
         }
     }
 

@@ -62,7 +62,7 @@ PODS:
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
-  - FireSnapshot (0.2.0):
+  - FireSnapshot (0.4.0):
     - Firebase/Firestore (~> 6.9)
   - GoogleAppMeasurement (6.1.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
@@ -129,7 +129,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core (~> 6.9)
   - Firebase/Firestore
-  - FireSnapshot (~> 0.1)
+  - FireSnapshot (~> 0.4.0)
   - ReSwift (~> 5.0)
   - ReSwiftThunk (~> 1.2)
   - SwiftFormat/CLI (~> 0.40.0)
@@ -174,7 +174,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
   FirebaseFirestore: 5ee8bdb959541f0d55352f2d681efb03b9742a43
   FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
-  FireSnapshot: f6503aca3c8ade50eca27fcf87f7c5d14ee20fcf
+  FireSnapshot: bdf827ca2416e938d31c11042d44cd8938eab285
   GoogleAppMeasurement: 0ae90be1cc4dad40f4a27fc767ef59fa032ec87b
   GoogleDataTransport: c8617c00e4f3eb9418e42ac0e8ac5241a9d555dd
   GoogleDataTransportCCTSupport: 9f352523e8785a71f6754f51eeff09f49ec19268
@@ -190,6 +190,6 @@ SPEC CHECKSUMS:
   SwiftFormat: 73667bbb741386b0febf0bd1a1b8c502aa9d1c98
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: 8f99c77f6ac2fbefb26434ea3e2348ea48f5c16e
+PODFILE CHECKSUM: b23d36c758b327140890987981cd34af81020083
 
 COCOAPODS: 1.8.1

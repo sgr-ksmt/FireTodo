@@ -15,7 +15,7 @@ enum EditTaskAction: Action {
     static func saveTask(_ taskData: Model.Task, userID: String) -> AppThunkAction {
         AppThunkAction { dispatch, _ in
             dispatch(EditTaskAction.startRequest)
-            Snapshot(data: taskData, path: Model.Path.tasks(userID: userID)).create { result in
+            Snapshot(data: taskData, path: .tasks(userID: userID)).create { result in
                 dispatch(EditTaskAction.endRequest)
                 switch result {
                 case .success:
@@ -30,7 +30,7 @@ enum EditTaskAction: Action {
     static func updateTask(_ taskData: Model.Task, taskID: String, userID: String) -> AppThunkAction {
         AppThunkAction { dispatch, _ in
             dispatch(EditTaskAction.startRequest)
-            Snapshot(data: taskData, path: Model.Path.task(userID: userID, taskID: taskID)).update { result in
+            Snapshot(data: taskData, path: .task(userID: userID, taskID: taskID)).update { result in
                 dispatch(EditTaskAction.endRequest)
                 switch result {
                 case .success:

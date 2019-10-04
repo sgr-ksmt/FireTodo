@@ -6,7 +6,7 @@ import Foundation
 import ReSwift
 
 enum EditTaskReducer {
-    static var reduce: Reducer<EditTaskState> {
+    static var reducer: Reducer<EditTaskState> {
         return { action, state in
             var state = state ?? EditTaskState()
             guard let action = action as? EditTaskAction else {
