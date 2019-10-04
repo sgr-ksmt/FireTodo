@@ -86,6 +86,7 @@ struct TasksView: View {
                 )
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             if let userID = self.store.state.authState.user?.reference.documentID {
                 self.store.dispatch(TasksAction.subscribe(userID: userID))

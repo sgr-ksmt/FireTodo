@@ -107,6 +107,7 @@ struct EditTaskView: View, Identifiable {
                     .disabled(!viewModel.canSave)
                 )
             }
+            .navigationViewStyle(StackNavigationViewStyle())
 
             LoadingView(isLoading: self.store.state.editTaskState.requesting)
         }
