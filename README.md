@@ -29,6 +29,7 @@ Simple Todo Application using **SwiftUI**/**Firebase**/**Redux**/**Combine**.
 - Adopt Redux Architecture.
 - Compatible with DarkMode.
 - Adopt Context Menu for edit/delete task.
+- Support iPad(Full Screen).
 
 ## Setup an Run
 
