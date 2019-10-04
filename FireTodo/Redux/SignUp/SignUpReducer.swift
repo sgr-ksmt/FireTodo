@@ -6,7 +6,7 @@ import Foundation
 import ReSwift
 
 enum SignUpReducer {
-    static var reduce: Reducer<SignUpState> {
+    static var reducer: Reducer<SignUpState> {
         return { action, state in
             var state = state ?? SignUpState()
             switch action {

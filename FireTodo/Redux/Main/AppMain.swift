@@ -16,7 +16,7 @@ final class AppMain {
 
 private func makeStore() -> Store<AppState> {
     .init(
-        reducer: AppReducer.reduce,
+        reducer: AppReducer.reducer,
         state: .init(),
         middleware: [
             createLoggingMiddleware(),

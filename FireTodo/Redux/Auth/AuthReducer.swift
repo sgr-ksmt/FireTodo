@@ -6,7 +6,7 @@ import Foundation
 import ReSwift
 
 enum AuthReducer {
-    static var reduce: Reducer<AuthState> {
+    static var reducer: Reducer<AuthState> {
         return { action, state in
             var state = state ?? AuthState()
             guard let action = action as? AuthAction else {
