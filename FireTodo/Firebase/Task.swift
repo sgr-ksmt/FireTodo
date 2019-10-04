@@ -7,7 +7,7 @@ import FireSnapshot
 import SwiftUI
 
 extension Model {
-    struct Task: HasTimestamps, Codable, Equatable{
+    struct Task: HasTimestamps, Codable, Equatable, FieldNameReferable {
         var title: String = ""
         var desc: String = ""
         var completed: Bool = false
@@ -19,6 +19,14 @@ extension Model {
             set {
                 color = newValue.rawValue
             }
+        }
+
+        static var fieldNames: [PartialKeyPath<Model.Task> : String] {
+            [
+                \Task.title: "title",
+                \Task.desc: "desc",
+                \Task.completed: "completed",
+            ]
         }
     }
 }

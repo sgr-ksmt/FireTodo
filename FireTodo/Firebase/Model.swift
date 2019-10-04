@@ -9,19 +9,19 @@ import Foundation
 enum Model {
 }
 
-extension Model {
-    enum Path {
-        static var users: CollectionPath = .init("users")
-        static func user(userID: String) -> DocumentPath {
-            users.doc(userID)
-        }
+extension CollectionPaths {
+    static let users = CollectionPath<Model.User>("users")
+    static func tasks(userID: String) -> CollectionPath<Model.Task> {
+        DocumentPaths.user(userID: userID).collection("tasks")
+    }
+}
 
-        static func tasks(userID: String) -> CollectionPath {
-            user(userID: userID).collection("tasks")
-        }
+extension DocumentPaths {
+    static func user(userID: String) -> DocumentPath<Model.User> {
+        CollectionPaths.users.document(userID)
+    }
 
-        static func task(userID: String, taskID: String) -> DocumentPath {
-            tasks(userID: userID).doc(taskID)
-        }
+    static func task(userID: String, taskID: String) -> DocumentPath<Model.Task> {
+        CollectionPaths.tasks(userID: userID).document(taskID)
     }
 }

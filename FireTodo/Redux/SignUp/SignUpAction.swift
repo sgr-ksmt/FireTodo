@@ -33,7 +33,7 @@ enum SignUpAction: Action {
     private static func createUser(with uid: String, name: String, db: Firestore = .firestore()) -> AppThunkAction {
         AppThunkAction { dispatch, _ in
             let user = Model.User(username: name)
-            Snapshot<Model.User>.init(data: user, path: Model.Path.user(userID: uid)).create { result in
+            Snapshot(data: user, path: .user(userID: uid)).create { result in
                 switch result {
                 case .success:
                     dispatch(AuthAction.fetchUser(uid: uid) {

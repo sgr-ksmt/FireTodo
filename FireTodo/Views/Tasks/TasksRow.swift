@@ -52,7 +52,7 @@ struct TasksRow: View {
 #if DEBUG
 struct TasksRow_Previews: PreviewProvider {
     static var previews: some View {
-        TasksRow(task: Snapshot<Model.Task>(data: .init(), path: Model.Path.tasks(userID: "xxx"))) {}
+        TasksRow(task: Snapshot<Model.Task>(data: .init(), path: .tasks(userID: "xxx"))) {}
     }
 }
 #endif
