@@ -16,6 +16,7 @@ class DeleteActionSheetState: ObservableObject {
 
 struct TasksView: View {
     @EnvironmentObject private var store: AppStore
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject private var deleteActionSheetState: DeleteActionSheetState = .init()
     @State private var hideCompletedTasks: Bool = true
     @State private var presentation: PresentationView?
