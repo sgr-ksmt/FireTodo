@@ -12,10 +12,10 @@ enum EditTaskAction: Action {
     case closeView
     case reset
 
-    static func saveTask(_ taskData: Model.Task, userID: String) -> AppThunkAction {
+    static func saveTask(_ task: Snapshot<Model.Task>) -> AppThunkAction {
         AppThunkAction { dispatch, _ in
             dispatch(EditTaskAction.startRequest)
-            Snapshot(data: taskData, path: .tasks(userID: userID)).create { result in
+            task.create { result in
                 dispatch(EditTaskAction.endRequest)
                 switch result {
                 case .success:
@@ -27,10 +27,10 @@ enum EditTaskAction: Action {
         }
     }
 
-    static func updateTask(_ taskData: Model.Task, taskID: String, userID: String) -> AppThunkAction {
+    static func updateTask(_ task: Snapshot<Model.Task>) -> AppThunkAction {
         AppThunkAction { dispatch, _ in
             dispatch(EditTaskAction.startRequest)
-            Snapshot(data: taskData, path: .task(userID: userID, taskID: taskID)).update { result in
+            task.update { result in
                 dispatch(EditTaskAction.endRequest)
                 switch result {
                 case .success:

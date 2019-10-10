@@ -40,7 +40,10 @@ struct TasksView: View {
                                     }
                                     .contextMenu {
                                         Button(action: {
-                                            self.presentation = PresentationView(view: EditTaskView(task: task))
+                                            guard let editTask = try? task.replicated() else {
+                                                return
+                                            }
+                                            self.presentation = PresentationView(view: EditTaskView(mode: .edit(editTask: editTask)))
                                         }) { Text("Edit") }
 
                                         Button(action: {
@@ -55,7 +58,10 @@ struct TasksView: View {
                         }
 
                         RightDownFloatButton {
-                            self.presentation = PresentationView(view: EditTaskView())
+                            guard let user = self.store.state.authState.user else {
+                                return
+                            }
+                            self.presentation = PresentationView(view: EditTaskView(mode: .new(userID: user.reference.documentID)))
                         }
                     }
                     .layoutPriority(1)
