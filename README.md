@@ -56,9 +56,12 @@ open FireTodo.xcworkspace
 
 ## Dependencies
 
-- SwiftUI
-- Firebase
-- ReSwift(for Redux architecture)
+- [SwiftUI](https://developer.apple.com/xcode/swiftui/)
+- [Firebase](https://firebase.google.com/docs)
+- [ReSwift(for Redux architecture)](https://github.com/ReSwift/ReSwift)
+  - About Redux: https://redux.js.org/
+- [FireSnapshot](https://github.com/sgr-ksmt/FireSnapshot): Firebase Cloud Firestore Model Framework with Codable.
+  - I'm developing it.
 
 ## Todo
 
