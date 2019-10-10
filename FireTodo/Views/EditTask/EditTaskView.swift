@@ -2,35 +2,59 @@
 // Copyright © Suguru Kishimoto. All rights reserved.
 //
 
+import Combine
 import FireSnapshot
 import SwiftUI
 
-class EditTaskViewModel: ObservableObject {
+private class EditTaskViewModel: ObservableObject {
     @Published var title: String = ""
     @Published var desc: String = ""
     @Published var color: TaskColor = .red
-    private var completed: Bool = false
-    init(task: Snapshot<Model.Task>?) {
-        guard let task = task else {
-            return
-        }
-        title = task.data.title
-        desc = task.data.desc
-        color = task.data.taskColor
-        completed = task.data.completed
+
+    let isEditing: Bool
+    let task: Snapshot<Model.Task>
+    private var cancellables: [AnyCancellable] = []
+    init(mode: EditTaskViewMode) {
+        isEditing = mode.isEditing
+        self.task = mode.task
+        title = self.task.data.title
+        desc = self.task.data.desc
+        color = self.task.data.taskColor
+
+        bind()
+    }
+
+    private func bind() {
+        cancellables.append(contentsOf: [
+            $title.sink { [task] in task.title = $0 },
+            $desc.sink { [task] in task.desc = $0 },
+            $color.sink { [task] in task.taskColor = $0 },
+        ])
     }
 
     var canSave: Bool {
         !title.isEmpty
     }
+}
 
-    var saveData: Model.Task {
-        var task = Model.Task()
-        task.title = title
-        task.desc = desc
-        task.taskColor = color
-        task.completed = completed
-        return task
+enum EditTaskViewMode {
+    case new(userID: String)
+    case edit(editTask: Snapshot<Model.Task>)
+
+    var task: Snapshot<Model.Task> {
+        switch self {
+        case let .new(userID):
+            return Snapshot(data: .init(), path: .tasks(userID: userID))
+        case let .edit(editTask):
+            return editTask
+        }
+    }
+
+    var isEditing: Bool {
+        if case .edit = self {
+            return true
+        }
+        return false
     }
 }
 
@@ -41,14 +65,8 @@ struct EditTaskView: View, Identifiable {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject private var viewModel: EditTaskViewModel
 
-    private let task: Snapshot<Model.Task>?
-    var isEditing: Bool {
-        task != nil
-    }
-
-    init(task: Snapshot<Model.Task>? = nil) {
-        self.task = task
-        viewModel = EditTaskViewModel(task: task)
+    init(mode: EditTaskViewMode) {
+        viewModel = EditTaskViewModel(mode: mode)
     }
 
     var body: some View {
@@ -84,7 +102,7 @@ struct EditTaskView: View, Identifiable {
                     Spacer()
                 }
                 .padding()
-                .navigationBarTitle(!isEditing ? "Create Task" : "Edit Task")
+                .navigationBarTitle(!viewModel.isEditing ? "Create Task" : "Edit Task")
                 .navigationBarItems(
                     leading: Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
@@ -93,16 +111,13 @@ struct EditTaskView: View, Identifiable {
                             .imageScale(.large)
                     },
                     trailing: Button(action: {
-                        guard let user = self.store.state.authState.user else {
-                            return
-                        }
-                        if !self.isEditing {
-                            self.store.dispatch(EditTaskAction.saveTask(self.viewModel.saveData, userID: user.reference.documentID))
-                        } else if let taskID = self.task?.reference.documentID {
-                            self.store.dispatch(EditTaskAction.updateTask(self.viewModel.saveData, taskID: taskID, userID: user.reference.documentID))
+                        if !self.viewModel.isEditing {
+                            self.store.dispatch(EditTaskAction.saveTask(self.viewModel.task))
+                        } else {
+                            self.store.dispatch(EditTaskAction.updateTask(self.viewModel.task))
                         }
                     }) {
-                        Text(!isEditing ? "Save" : "Edit")
+                        Text(!viewModel.isEditing ? "Save" : "Edit")
                     }
                     .disabled(!viewModel.canSave)
                 )
@@ -123,7 +138,7 @@ struct EditTaskView: View, Identifiable {
 #if DEBUG
 struct EditTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        EditTaskView().environmentObject(AppMain().store)
+        EditTaskView(mode: .new(userID: "xxx")).environmentObject(AppMain().store)
     }
 }
 #endif
