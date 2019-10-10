@@ -47,7 +47,7 @@ enum TasksAction: Action {
 
     static func toggleTaskCompleted(_ task: Snapshot<Model.Task>) -> AppThunkAction {
         AppThunkAction { _, _ in
-            task.data.completed.toggle()
+            task.completed.toggle()
             task.update()
         }
     }

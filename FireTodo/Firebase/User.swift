@@ -7,7 +7,7 @@ import FireSnapshot
 import Foundation
 
 extension Model {
-    struct User: Codable, HasTimestamps {
+    struct User: SnapshotData, HasTimestamps {
         var username: String = ""
     }
 }
