@@ -13,7 +13,7 @@ target 'FireTodo' do
   pod 'Firebase/Core', '~> 6.9'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  pod 'FireSnapshot', '~> 0.5.0'
+  pod 'FireSnapshot', '~> 0.6'
 
   # ReSwift
   pod 'ReSwift', '~> 5.0'
