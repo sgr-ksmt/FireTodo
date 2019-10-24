@@ -21,7 +21,7 @@ struct ContentView: View {
             }
             }())
             .onAppear { self.store.dispatch(AuthAction.subscribe()) }
-            .onDisappear { self.store.dispatch(AuthAction.subscribe()) }
+            .onDisappear { self.store.dispatch(AuthAction.unsubscribe()) }
     }
 }
 
